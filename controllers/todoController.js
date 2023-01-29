@@ -2,7 +2,7 @@
 module.exports = function(app){
     //the get request for the url itself
     app.get('/todo', function(request, response){
-
+        response.render('todo')
     })
 
     //for when the person adds a new item to the list
