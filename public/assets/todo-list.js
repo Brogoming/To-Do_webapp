@@ -3,15 +3,15 @@ $(document).ready(function(){
     $('form').on('submit', function(){
   
         var item = $('form input');
-        var todo = {item: item.val()};
+        var todo = {item: item.val()}; //we grab what ever value is typed and store it in the item property
   
-        $.ajax({
+        $.ajax({ //this allows us to delete or add an item to the list
           type: 'POST',
           url: '/todo',
           data: todo,
-          success: function(data){
+          success: function(data){ //data is sent back to this function
             //do something with the data via front-end framework
-            location.reload();
+            location.reload(); //reload the page
           }
         });
   
@@ -19,7 +19,7 @@ $(document).ready(function(){
   
     });
   
-    $('li').on('click', function(){
+    $('li').on('click', function(){ //delete request
         var item = $(this).text().replace(/ /g, "-");
         $.ajax({
           type: 'DELETE',
